@@ -1,47 +1,31 @@
-# 🚀 Cluster HPC TECHNE --- Documentação Técnica Completa
+# 🚀 Cluster HPC TECHNE — Documentação Técnica Completa
 
-Este repositório documenta a arquitetura, configuração e infraestrutura
-do **Cluster HPC TECHNE**, utilizado para processamento de alto
-desempenho (HPC) com gerenciamento via **Slurm**.
+Este repositório documenta a arquitetura, configuração e infraestrutura do **Cluster HPC TECHNE**, utilizado para processamento de alto desempenho (HPC) com gerenciamento via **Slurm**.
 
-------------------------------------------------------------------------
+---
 
 ## 📌 1. Visão Geral e Arquitetura
 
-O cluster TECHNE é composto por um nó controlador e múltiplos nós de
-execução heterogêneos, com suporte a GPUs NVIDIA L4, armazenamento
-compartilhado e monitoramento centralizado.
+O cluster TECHNE é composto por um nó controlador e múltiplos nós de execução heterogêneos, com suporte a GPUs NVIDIA L4, armazenamento compartilhado e monitoramento centralizado.
 
 ### 🔧 Componentes Principais
 
-  -----------------------------------------------------------------------
-  Componente                 Detalhes Técnicos
-  -------------------------- --------------------------------------------
-  **Controlador / Master**   `slurm-master` --- IP:
-                             `10.9x.xx.xx``<br>`{=html}Serviços:
-                             Slurmctld, Slurmdbd, PostgreSQL/MariaDB,
-                             Munge
-
-  **Nó de Execução 1**       `gpunode01` --- 16 Cores, 62.9 GB
-                             RAM`<br>`{=html}2x GPUs NVIDIA L4
-
-  **Nó de Execução 2**       `gpunode02` --- 12 Cores, 31.0 GB
-                             RAM`<br>`{=html}1x GPU NVIDIA L4
-
-  **Sistema Operacional**    Linux Ubuntu/Debian --- Kernel 6.8.x
-
-  **Armazenamento**          NFS em `/data/` + LVM no disco principal
-  -----------------------------------------------------------------------
+| Componente | Detalhes Técnicos |
+|-----------|-------------------|
+| **Controlador / Master** | `slurm-master` — IP: `10.xx.yy.zz`<br>Serviços: Slurmctld, Slurmdbd, PostgreSQL/MariaDB, Munge |
+| **Nó de Execução 1** | `gpunode01` — 16 Cores, 62.9 GB RAM<br>2x GPUs NVIDIA L4 |
+| **Nó de Execução 2** | `gpunode02` — 12 Cores, 31.0 GB RAM<br>1x GPU NVIDIA L4 |
+| **Sistema Operacional** | Linux Ubuntu/Debian — Kernel 6.8.x |
+| **Armazenamento** | NFS em `/data/` + LVM no disco principal |
 
 ### 🖥️ Configuração de Hardware (via `lshw`)
 
--   **CPU:** Intel® Xeon® Gold 6526Y (2 sockets lógicos)\
--   **RAM Total:** 32 GiB (62.9 GiB disponíveis ao Slurm via
-    `RealMemory`)\
--   **GPUs:** 2× NVIDIA L4 (AD104GL) --- 23 GB VRAM cada\
--   **Controladoras:** Virtio SCSI e Virtio Network
+- **CPU:** Intel® Xeon® Gold 6526Y (2 sockets lógicos)  
+- **RAM Total:** 32 GiB (62.9 GiB disponíveis ao Slurm via `RealMemory`)  
+- **GPUs:** 2× NVIDIA L4 (AD104GL) — 23 GB VRAM cada  
+- **Controladoras:** Virtio SCSI e Virtio Network  
 
-------------------------------------------------------------------------
+---
 
 ## 📡 2. Configuração do Agendador Slurm
 
@@ -156,3 +140,4 @@ pode ser reutilizado para estudos, configuração e expansão do ambiente.
 
 **INFRA NCAD / UFPI**\
 Gerenciamento e Desenvolvimento do Cluster HPC TECHNE
+
